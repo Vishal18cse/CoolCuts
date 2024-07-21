@@ -10,7 +10,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Appointment
-        fields = ['id', 'customer_name', 'appointment_date', 'appointment_time', 'checklist']
+        fields = ['id', 'user', 'customer_name', 'appointment_date', 'appointment_time', 'checklist' , 'status']
     
     def validate_appointment_time(self, value):
         try:

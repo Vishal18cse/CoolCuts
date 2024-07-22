@@ -10,7 +10,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Appointment
-        fields = ['id', 'user', 'customer_name', 'appointment_date', 'appointment_time', 'checklist' , 'status']
+        fields = ['id', 'user', 'customer_name', 'appointment_date', 'appointment_time', 'checklist' , 'status' , 'booking_time']
     
     def validate_appointment_time(self, value):
         try:
@@ -24,3 +24,11 @@ class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
         fields = ['id', 'name', 'price']
+
+
+from .models import ContactForm
+
+class ContactFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactForm
+        fields = ['name', 'email', 'subject', 'message' ,'created_at']
